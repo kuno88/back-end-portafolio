@@ -41,7 +41,7 @@ public class UserController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<?>login(@RequestBody DtoUser dtoUser){
         if (!userService.existsByEmail(dtoUser.getEmail())){
             return new ResponseEntity<>(new Mensaje("El usuario no existe"), HttpStatus.NOT_FOUND);
