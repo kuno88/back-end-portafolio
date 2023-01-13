@@ -25,7 +25,7 @@ public class ExperienceController {
         List<ExperienceModel> list = experienceService.get();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-    @PostMapping("/create")
+    @PostMapping("https://portafolio-f6f99.web.app/api/experiencecreate")
     public ResponseEntity<?>create(@RequestBody DtoExperience dtoExperience){
         if(StringUtils.isBlank(dtoExperience.getCompanyName()))
             return new ResponseEntity<>(new Mensaje("El nombre es obligatorio"),HttpStatus.BAD_REQUEST);
@@ -55,7 +55,7 @@ public class ExperienceController {
         experienceService.save(experiencia);
         return new ResponseEntity<>(new Mensaje("Actualizado"),HttpStatus.OK);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("https://portafolio-f6f99.web.app/{id}")
     public ResponseEntity<?>delete(@PathVariable("id") Long id){
         if(!experienceService.existsById(id))
             return new ResponseEntity<>(new Mensaje("La experiencia no existe"), HttpStatus.BAD_REQUEST);
