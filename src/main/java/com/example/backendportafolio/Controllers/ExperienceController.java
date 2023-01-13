@@ -25,7 +25,7 @@ public class ExperienceController {
         List<ExperienceModel> list = experienceService.get();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-    @PostMapping("https://portafolio-f6f99.web.app/api/experiencecreate")
+    @PostMapping("https://portafolio-f6f99.web.app/api/experience/create")
     public ResponseEntity<?>create(@RequestBody DtoExperience dtoExperience){
         if(StringUtils.isBlank(dtoExperience.getCompanyName()))
             return new ResponseEntity<>(new Mensaje("El nombre es obligatorio"),HttpStatus.BAD_REQUEST);
