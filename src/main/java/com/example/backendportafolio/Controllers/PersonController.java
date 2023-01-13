@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/person")
-@CrossOrigin(origins = "https://portafolio-f6f99.web.app")
+@CrossOrigin()
 public class PersonController {
     @Autowired
     PersonService personService;

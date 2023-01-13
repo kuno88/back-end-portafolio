@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/skills")
-@CrossOrigin(origins = "https://portafolio-f6f99.web.app")
+@CrossOrigin()
 public class SkillController {
     @Autowired
     SkillService skillService;
