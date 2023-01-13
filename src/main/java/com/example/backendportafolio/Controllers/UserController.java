@@ -25,7 +25,7 @@ public class UserController {
         if(StringUtils.isBlank(dtoUser.getEmail()))
             return new ResponseEntity<>(new Mensaje("El email es obligatorio"), HttpStatus.BAD_REQUEST);
         if(userService.existsByEmail(dtoUser.getEmail())) {
-            return new ResponseEntity<>(new Mensaje("Correo ya Utilizado"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Mensaje("Correo ya esta utilizado"), HttpStatus.BAD_REQUEST);
         }
         UserModel usuario = new UserModel(
                 dtoUser.getNombre(),
@@ -43,8 +43,11 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?>login(@RequestBody DtoUser dtoUser){
-        if (userService.logear(dtoUser.getEmail(),dtoUser.getPassword())) {
+        if (!userService.existsByEmail(dtoUser.getEmail())){
             return new ResponseEntity<>(new Mensaje("El usuario no existe"), HttpStatus.NOT_FOUND);
+        }
+        if (!userService.existByPaswword(dtoUser.getPassword())){
+            return new ResponseEntity<>(new Mensaje("El password es incorrecto"),HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(new Mensaje("Bienvenido"),HttpStatus.OK);
     }

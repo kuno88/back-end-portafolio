@@ -36,6 +36,6 @@ public class UserService {
         return userRepository.existsByEmail(email);
     }
 
-    public boolean logear(String email, String password){return userRepository.existsByEmailAndPassword(email,password);}
+    public boolean existByPaswword(String password){return userRepository.existsByPassword(password);}
 
 }
