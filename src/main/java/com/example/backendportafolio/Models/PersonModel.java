@@ -27,7 +27,7 @@ public class PersonModel {
 
     private String email;
 
-    private Integer phone;
+    private Long phone;
 
     private String nationality;
 
@@ -61,7 +61,7 @@ public class PersonModel {
     public PersonModel() {
     }
 
-    public PersonModel( String name,  String lastName,  String birth,  String title,  String email,  Integer phone,  String nationality,  String aboutMe,  String bannerUrl,  String profileUrl) {
+    public PersonModel( String name,  String lastName,  String birth,  String title,  String email,  Long phone,  String nationality,  String aboutMe,  String bannerUrl,  String profileUrl) {
         this.name = name;
         this.lastName = lastName;
         this.birth = birth;
