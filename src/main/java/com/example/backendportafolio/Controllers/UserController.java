@@ -41,5 +41,13 @@ public class UserController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?>login(@RequestBody DtoUser dtoUser){
+        if (userService.logear(dtoUser.getEmail(),dtoUser.getPassword())) {
+            return new ResponseEntity<>(new Mensaje("El usuario no existe"), HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(new Mensaje("Bienvenido"),HttpStatus.OK);
+    }
+
 
 }
