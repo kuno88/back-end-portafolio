@@ -29,14 +29,10 @@ public class UserController {
         UserModel usuario = new UserModel(
                 dtoUser.getNombre(),
                 dtoUser.getEmail(),
-                new BCryptPasswordEncoder().encode(dtoUser.getPassword()));
+                dtoUser.getPassword());
                 userService.save(usuario);
         return new ResponseEntity<>(new Mensaje("Usuario creado"),HttpStatus.OK);
     }
 
-    /* public static void main(String[] args){
-        System.out.println("pass: "+ new BCryptPasswordEncoder().encode("admin"));
-    }
-    */
 
 }
